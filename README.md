@@ -1,9 +1,12 @@
 # E-learning Web with Proactive AI Tutor
-E-learning Framework Used in the Study: Intervention Strategies of Proactive AI Tutor
+
+**Purpose**
+
+This website was created to support the study titled "E-learning Framework Used in the Study: Intervention Strategies of Proactive AI Tutor." It is designed to facilitate user studies where participants can watch video lectures, interact with an AI tutor regarding the lecture content, and take quizzes at intervals. The goal is to determine how actively the AI tutor should engage in students' learning and to identify the optimal level of intervention needed to enhance learning outcomes.
 
 **Research Objectives**
 
-- Evaluate the impact of different levels of AI tutor intervention.
+- Evaluate the impact of different levels of AI tutor intervention through user interaction logs.
 - Determine how each level of intervention affects students' learning outcomes and learning experiences.
 
 Therefore, we categorize intervention levels into 1) Passive Support, 2) Notification, 3) Suggestion, and 4) Active Support, and implement GPT-based AI chatbots with different interaction scenarios for each level to conduct experiments.
