@@ -21,7 +21,10 @@ The results of the user study conducted using this E-learning framework, which a
 
 **Guideline**
 
-To use it, you need to obtain an API key for GPT. (I used a paid subscription.) The learning materials used are organized in the dataset folder, which contains quiz materials created by GPT based on learning objectives analyzed from video content. The code for the chatbot operates using the O/X quizzes from this dataset. If necessary, you can modify the chatbot using the provided dataset.
+- To use it, you need to obtain an API key for GPT. (I used a paid subscription.)
+- The learning materials used are organized in the dataset folder, which contains quiz materials created by GPT based on learning objectives analyzed from video content. (I utilized the introductory videos on reinforcement learning from the MATLAB Korea YouTube channel. The content was transcribed using the Google Speech-to-Text model and then incorporated into the chatbot scenarios.)
+- The code for the chatbot operates using the O/X quizzes from this dataset. If necessary, you can modify the chatbot using the provided dataset.
+- User logs are stored after the user information is entered and saved. Note that log storage stops when the user logs out.
 
 
 This was utilized in the research for the Creative Autonomous Project in June 2024.
