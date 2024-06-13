@@ -15,10 +15,6 @@ Therefore, we categorize intervention levels into 1) Passive Support, 2) Notific
 - GPT Reference Material: Transcribe the lecture video into a text file using an Google Speech to Text (STT) model.
 - User Action: Watching a lecture, Asking questions, Taking quizzes
 
-**User Study Results**
-
-The results of the user study conducted using this E-learning framework, which analyzed the overall learning experience of the students, are summarized in the 'poster.pdf' file.
-
 **Guideline**
 
 - To use it, you need to obtain an API key for GPT. (I used a paid subscription.)
@@ -26,5 +22,8 @@ The results of the user study conducted using this E-learning framework, which a
 - The code for the chatbot operates using the O/X quizzes from this dataset. If necessary, you can modify the chatbot using the provided dataset.
 - User logs are stored after the user information is entered and saved. Note that log storage stops when the user logs out.
 
+**User Study Results**
+
+The results of the user study conducted using this E-learning framework, which analyzed the overall learning experience of the students, are summarized in the 'poster.pdf' file.
 
 This was utilized in the research for the Creative Autonomous Project in June 2024.
