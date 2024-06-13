@@ -1,4 +1,4 @@
-# Proactive_AI_Tutor
+# E-learning Web with Proactive AI Tutor
 E-learning Framework Used in the Study: Intervention Strategies of Proactive AI Tutor
 
 **Research Objectives**
@@ -16,6 +16,7 @@ Therefore, we categorize intervention levels into 1) Passive Support, 2) Notific
 **User Study Results**
 The results of the user study conducted using this E-learning framework, which analyzed the overall learning experience of the students, are summarized in the 'poster.pdf' file.
 
+**Guideline**
 To use it, you need to obtain an API key for GPT. (I used a paid subscription.) The learning materials used are organized in the dataset folder, which contains quiz materials created by GPT based on learning objectives analyzed from video content. The code for the chatbot operates using the O/X quizzes from this dataset. If necessary, you can modify the chatbot using the provided dataset.
 
 This was utilized in the research for the Creative Autonomous Project in June 2024.
