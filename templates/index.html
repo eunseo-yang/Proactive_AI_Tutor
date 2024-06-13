@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-learning</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Online Class</h1>
+            <h2>Reinforcement Learning</h2>
+            <div class="user-controls">
+                <button id="userInfoButton">유저 정보 저장</button>
+                <button id="logoutButton">로그 아웃</button>
+            </div>
+        </div>
+        <div class="options">
+            <button id="passiveSupport">Passive Support</button>
+            <button id="notificationSupport">Notification</button>
+            <button id="suggestionSupport">Suggestion</button>
+            <button id="activeSupport">Active Support</button>
+        </div>
+    </header>
+    <div class="user-info-modal" id="userInfoModal">
+        <div class="user-info-content">
+            <span class="close-button" id="closeModal">&times;</span>
+            <h2>유저 정보 입력</h2>
+            <form id="userInfoForm">
+                <div class="form-group">
+                    <label for="userName">이름:</label>
+                    <input type="text" id="userName" name="userName" required>
+                </div>
+                <div class="form-group">
+                    <label for="userAge">나이:</label>
+                    <input type="number" id="userAge" name="userAge" required>
+                </div>
+                <div class="form-group">
+                    <label for="userGender">성별:</label>
+                    <select id="userGender" name="userGender" required>
+                        <option value="female">여성</option>
+                        <option value="male">남성</option>
+                        <option value="other">기타</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="userUnderstanding">강화학습 이해도:</label>
+                    <select id="userUnderstanding" name="userUnderstanding" required>
+                        <option value="high">상</option>
+                        <option value="medium">중</option>
+                        <option value="low">하</option>
+                    </select>
+                </div>
+                <button type="submit">저장</button>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="video-container" id="videoContainer">
+            <video id="learningVideo" width="100%" controls>
+                <div id="videoOverlay"></div>
+                <source src="static/images/RL.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-description">
+                <h3>강의 제목: 강화학습의 기초</h3>
+                <p><strong>강의 출처:</strong> MATLAB Korea, 강화 학습이란? | 강화 학습 Part 1</p>
+                <p><strong>강의 요약:</strong> 강화학습의 개념과 MDP의 개념, 정책 최적화에 대해 배웁니다.</p>
+                <p><strong>학습 대상:</strong> 이 강의는 강화학습 초급자를 대상으로 하며 선수지식은 필요 없습니다.</p>
+            </div>
+        </div>
+        <div class="chatbot-container">
+            <div id="chatbot">
+                <div id="chatHeader">
+                    <div id="chatTitle">
+                        <span class="chatTitleText">Tutor</span>
+                    </div>
+                </div>
+                <div id="chatLog"></div>
+                <div class="input-container"> 
+                    <input type="text" id="userInput" placeholder="질문을 입력하세요...">
+                    <button onclick="sendMessage()">전송</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="static/chatbot.js"></script>
+</body>
+</html>
