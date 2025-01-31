@@ -6,7 +6,9 @@ import json
 from datetime import datetime
 
 app = Flask(__name__)
-openai.api_key = 'API KEY'
+#openai.api_key = 'API KEY'
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+openai.api_key = OPENAI_API_KEY
 
 # 로깅 설정
 logging.basicConfig(level=logging.DEBUG)
@@ -95,5 +97,5 @@ def save_user_info_to_file(user_info):
     with open(user_info_file, 'w', encoding='utf-8') as f:
         json.dump(existing_user_info, f, ensure_ascii=False, indent=4)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
