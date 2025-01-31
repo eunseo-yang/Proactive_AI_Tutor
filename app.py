@@ -6,7 +6,7 @@ import json
 from datetime import datetime
 
 app = Flask(__name__)
-#openai.api_key = 'YOUR API KEY'
+openai.api_key = 'API KEY'
 
 # 로깅 설정
 logging.basicConfig(level=logging.DEBUG)
