@@ -29,7 +29,7 @@ function sendMessage() {
     })
     .catch(error => {
         console.error('Error:', error);
-        displayBotMessage("오류가 발생했습니다.");
+        displayBotMessage("An error has occurred.");
     });
 }
 
@@ -137,14 +137,21 @@ video.addEventListener('timeupdate', () => {
 });
 
 const displayedMessages = {};
+//const learningObjectives = {
+//    349: "강화 학습(RL)이 무엇인지 정의하고, 머신러닝의 다른 분류 (지도 학습, 비지도 학습)와의 차이점을 이해한다.",
+//    493: "강화 학습 문제 설정 방법과 구성요소(에이전트, 환경, 상태, 행동, 보상)의 역할을 설명할 수 있다.",
+//    673: "가치 평가, 탐색(exploration)과 이용(exploitation) 개념 등을 이해하고 적용할 수 있다.",
+//    762: "전통적인 제어 방식과 강화 학습의 차이점과 유사점을 이해한다.",
+//    810: "탐색/이용 매개변수 및 미래 보상 할인 설정 등의 강화 학습의 세부 사항을 이해하고 조정할 수 있다."
+//};
 const learningObjectives = {
-    349: "강화 학습(RL)이 무엇인지 정의하고, 머신러닝의 다른 분류 (지도 학습, 비지도 학습)와의 차이점을 이해한다.",
-    493: "강화 학습 문제 설정 방법과 구성요소(에이전트, 환경, 상태, 행동, 보상)의 역할을 설명할 수 있다.",
-    673: "가치 평가, 탐색(exploration)과 이용(exploitation) 개념 등을 이해하고 적용할 수 있다.",
-    762: "전통적인 제어 방식과 강화 학습의 차이점과 유사점을 이해한다.",
-    810: "탐색/이용 매개변수 및 미래 보상 할인 설정 등의 강화 학습의 세부 사항을 이해하고 조정할 수 있다."
-
+    349: "Define what Reinforcement Learning (RL) is and understand the differences between RL and other types of Machine Learning (Supervised Learning, Unsupervised Learning).",
+    493: "Explain how to formulate a Reinforcement Learning problem and describe the roles of its components (Agent, Environment, State, Action, Reward).",
+    673: "Understand and apply concepts such as value estimation, exploration, and exploitation.",
+    762: "Understand the similarities and differences between traditional control methods and Reinforcement Learning.",
+    810: "Understand and adjust specific details of Reinforcement Learning, such as exploration/exploitation parameters and future reward discount settings."
 };
+
 
 let quizzes = [];
 
@@ -170,7 +177,7 @@ function fetchQuiz(minutes) {
     if (objectiveQuizzes.length > 0) {
         if (quizIndex >= objectiveQuizzes.length) {
             quizIndex = 0;
-            displayBotMessage("이제 다시 강의를 들어봅시다!", () => {
+            displayBotMessage("Now let's take the lecture again!", () => {
                 enableVideoControls();
                 video.play();
             });
@@ -179,7 +186,7 @@ function fetchQuiz(minutes) {
             disableVideoControls(); // 비디오 컨트롤 비활성화
         }
     } else {
-        displayBotMessage("적절한 퀴즈를 찾을 수 없습니다.");
+        displayBotMessage("The appropriate quiz was not found.");
     }
 }
 
@@ -258,26 +265,58 @@ function continueLecture() {
 
 // 5:49, 8:13, 11:13, 12:42, 13:30
 
+// function checkTimeAndAct(currentTime) {
+//     const minutes = Math.floor(currentTime);
+//     currentMinutes = minutes; 
+//     console.log("minute:",minutes)
+//     if ([349, 493, 673, 762, 810].includes(minutes) && !displayedMessages[minutes]) {
+//         displayedMessages[minutes] = true;
+//         const objective = learningObjectives[minutes];
+//         let message = "";
+        
+//         if (activeFeature === 'notification') {
+//             message = `지금 이 부분은 학습 목표인 ${objective}를 다루고 있어서 매우 중요해요. 잘 이해하고 넘어가야합니다!`;
+//             displayBotMessage(message);
+//         } else if (activeFeature === 'suggestion') {
+//             video.pause();
+//             message = `지금 이 부분은 학습 목표인 ${objective}를 다루고 있어서 매우 중요해요. 잠깐 문제를 풀어보면서 더 알아볼래요?`;
+//             displayBotMessage(message);  
+//             displayOptions(minutes);
+//         } else if (activeFeature === 'active') {
+//             video.pause();
+//             message = `지금 이 부분은 학습 목표인 ${objective}를 다루고 있어서 매우 중요해요. 추가 문제를 풀고 넘어가봅시다.`;
+//             displayBotMessage(message, () => {
+//                 setTimeout(() => {
+//                     fetchQuiz(minutes);
+//                 }, 1000);
+//             });
+//         }
+//     } else if (!([349, 493, 673, 762, 810].includes(minutes))) {
+//         displayedMessages[minutes] = false;
+//     }
+// }
+
 function checkTimeAndAct(currentTime) {
     const minutes = Math.floor(currentTime);
     currentMinutes = minutes; 
-    console.log("minute:",minutes)
+    console.log("minute:", minutes);
+    
     if ([349, 493, 673, 762, 810].includes(minutes) && !displayedMessages[minutes]) {
         displayedMessages[minutes] = true;
         const objective = learningObjectives[minutes];
         let message = "";
         
         if (activeFeature === 'notification') {
-            message = `지금 이 부분은 학습 목표인 ${objective}를 다루고 있어서 매우 중요해요. 잘 이해하고 넘어가야합니다!`;
+            message = `This section covers the learning objective: ${objective}, which is very important. Make sure you understand it well!`;
             displayBotMessage(message);
         } else if (activeFeature === 'suggestion') {
             video.pause();
-            message = `지금 이 부분은 학습 목표인 ${objective}를 다루고 있어서 매우 중요해요. 잠깐 문제를 풀어보면서 더 알아볼래요?`;
+            message = `This section covers the learning objective: ${objective}, which is very important. Would you like to try a quick question to reinforce your understanding?`;
             displayBotMessage(message);  
             displayOptions(minutes);
         } else if (activeFeature === 'active') {
             video.pause();
-            message = `지금 이 부분은 학습 목표인 ${objective}를 다루고 있어서 매우 중요해요. 추가 문제를 풀고 넘어가봅시다.`;
+            message = `This section covers the learning objective: ${objective}, which is very important. Let's solve an additional question before moving on.`;
             displayBotMessage(message, () => {
                 setTimeout(() => {
                     fetchQuiz(minutes);
@@ -288,6 +327,7 @@ function checkTimeAndAct(currentTime) {
         displayedMessages[minutes] = false;
     }
 }
+
 
 function displayOptions(minutes) {
     const optionsDiv = document.createElement('div');
